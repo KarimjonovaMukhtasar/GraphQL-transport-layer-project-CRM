@@ -12,17 +12,18 @@ import { PaymentsModule } from './payments/payments.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { AttendanceDetailsModule } from './attendance_details/attendance_details.module';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { ApolloDriver, ApolloDriverConfig} from '@nestjs/apollo';
 
 @Module({
-  imports: [StaffsModule, StudentsModule, CoursesModule, GroupsModule, StudentGroupsModule, LessonsModule, AttendanceModule, PaymentsModule, ScheduleModule, AttendanceDetailsModule
-     GraphQLModule.forRoot<ApolloDriverConfig>{
+  imports: [StaffsModule, StudentsModule, CoursesModule, GroupsModule, StudentGroupsModule, LessonsModule, AttendanceModule, PaymentsModule, ScheduleModule, AttendanceDetailsModule,
+     GraphQLModule.forRoot<ApolloDriverConfig>({
         driver: ApolloDriver,
         autoSchemaFile: true,
         graphiql: true
-     }
+     })
   ],
   controllers: [AppController],
   providers: [AppService],
 })
+
 export class AppModule {}
