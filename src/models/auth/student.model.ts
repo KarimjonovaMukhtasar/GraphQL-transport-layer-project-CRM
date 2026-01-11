@@ -1,17 +1,13 @@
 import { Field, ObjectType } from "@nestjs/graphql";
 import { role } from "@prisma/client";
 
-
 @ObjectType()
-export class StudentResponse{
+export class Tokens{
     @Field()
-    success: boolean
+    accessToken: string
 
     @Field()
-    tokens: Tokens
-
-    @Field()
-    student: Student
+    refreshToken: string
 }
 
 @ObjectType()
@@ -27,13 +23,19 @@ export class Student {
 
     @Field()
     username: string
-}
+} 
 
 @ObjectType()
-export class Tokens{
+export class StudentResponse{
     @Field()
-    accessToken: string
+    success: boolean
 
     @Field()
-    refreshToken: string
+    tokens: Tokens
+
+    @Field()
+    student: Student
 }
+
+
+

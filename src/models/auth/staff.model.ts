@@ -1,24 +1,17 @@
 import { Field, ObjectType } from "@nestjs/graphql";
 import { role } from "@prisma/client";
 
-
 @ObjectType()
-export class StaffResponse{
+export class tokens{
     @Field()
-    success: boolean
+    accessToken: string
 
     @Field()
-    message: string
-
-    @Field()
-    tokens: Tokens
-
-    @Field()
-    staff: Staff
+    refreshToken: string
 }
 
 @ObjectType()
-export class Staff {
+export class staff {
     @Field()
     id: string
 
@@ -38,12 +31,17 @@ export class Staff {
     position: string
 }
 
-
 @ObjectType()
-export class Tokens{
+export class StaffResponse{
     @Field()
-    accessToken: string
+    success: boolean
 
     @Field()
-    refreshToken: string
+    message: string
+
+    @Field()
+    tokens: tokens
+
+    @Field()
+    staff: staff
 }
