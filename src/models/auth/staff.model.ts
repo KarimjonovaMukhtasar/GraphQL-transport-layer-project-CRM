@@ -16,10 +16,10 @@ export class staff {
     id: string
 
     @Field()
-    firstName: string
+    first_name: string
 
     @Field()
-    lastName: string
+    last_name: string
 
     @Field()
     username: string

@@ -6,6 +6,7 @@ import { ApolloDriver, ApolloDriverConfig} from '@nestjs/apollo';
 import { AuthModule } from './models/auth/auth.module';
 import { StaffModule } from './models/staffs/staff.module';
 import { ConfigModule } from '@nestjs/config';
+import { StudentModule } from './models/student/student.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { ConfigModule } from '@nestjs/config';
         context: ({req,res}) => ({req, res})
      }),
      AuthModule,
-     StaffModule
+     StaffModule,
+     StudentModule
   ],
   controllers: [AppController],
   providers: [AppService],

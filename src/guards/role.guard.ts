@@ -11,7 +11,7 @@ export class RolesGuard implements CanActivate {
     canActivate(context: ExecutionContext): boolean {
         const requiredRoles = this.reflector.getAllAndOverride<role[]>(ROLES_KEY, [
             context.getHandler(),
-            context.getClass
+            context.getClass()
         ])
 
         if(!requiredRoles){
@@ -19,7 +19,8 @@ export class RolesGuard implements CanActivate {
         }
 
         const ctx = GqlExecutionContext.create(context)
-        const {user} = ctx.getContext().requiredRoles
+        const {req} = ctx.getContext()
+        const user = req.user
         if(!user){
             throw new ForbiddenException("USER NOT FOUND, CHECK AUTHORIZATION FIRST!")
         }

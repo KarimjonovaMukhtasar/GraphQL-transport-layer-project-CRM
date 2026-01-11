@@ -1,0 +1,26 @@
+import { Field, InputType } from "@nestjs/graphql";
+import { role } from "@prisma/client";
+
+@InputType()
+export class registerStudentDto{
+    @Field()
+    first_name: string
+
+    @Field()
+    last_name: string
+
+    @Field()
+    username: string
+
+    @Field()
+    password: string
+
+    @Field()
+    phone: string
+
+    @Field()
+    address: string
+
+    @Field()
+    birth_date: string
+}
