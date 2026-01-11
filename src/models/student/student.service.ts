@@ -18,7 +18,8 @@ export class StudentService {
       );
     }
     payload.password = await bcrypt.hash(payload.password, 10);
-    const student = await this.prisma.students.create({ data: payload });
+    const birth_date = new Date(payload.birth_date)
+    const student = await this.prisma.students.create({ data: {...payload, birth_date} });
     return {
       success: true,
       message: `SUCCESSFULLY REGISTERED A NEW STUDENT`,
@@ -30,6 +31,7 @@ export class StudentService {
     const students= await this.prisma.students.findMany();
     return {
       success: true,
+      count: students.length,
       message: `SUCCESSFULLY RETRIEVED ALL STUDENTS!`,
       students
     };
