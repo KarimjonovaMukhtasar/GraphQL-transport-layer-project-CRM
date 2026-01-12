@@ -8,6 +8,8 @@ import { StaffModule } from './models/staffs/staff.module';
 import { ConfigModule } from '@nestjs/config';
 import { StudentModule } from './models/student/student.module';
 import { TeacherModule } from './models/teachers/teacher.module';
+import { GroupModule } from './models/groups/group.module';
+import { CourseModule } from './models/courses/course.module';
 
 @Module({
   imports: [
@@ -24,7 +26,9 @@ import { TeacherModule } from './models/teachers/teacher.module';
      AuthModule,
      StaffModule,
      StudentModule,
-     TeacherModule
+     TeacherModule,
+     CourseModule,
+     GroupModule
   ],
   controllers: [AppController],
   providers: [AppService],
